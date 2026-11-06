@@ -7,6 +7,7 @@ const otherInquiry = document.querySelector('#other-inquiry');
 const otherDetails = document.querySelector('#other-details');
 const chartVideo = document.querySelector('#chart-video');
 const codingVideo = document.querySelector('#coding-video');
+const siteVideos = document.querySelectorAll('video');
 let language = 'ko';
 
 function updateOtherInquiry() {
@@ -30,7 +31,8 @@ function syncChartVideo() {
 
 function resumeVideos() {
   if (document.visibilityState !== 'visible') return;
-  for (const video of [chartVideo, codingVideo]) {
+  for (const video of siteVideos) {
+    video.playbackRate = 1.2;
     if (video?.paused) video.play().catch(() => {});
   }
 }
@@ -59,7 +61,10 @@ window.addEventListener('resize', syncChartVideo);
 window.addEventListener('pageshow', resumeVideos);
 window.addEventListener('focus', resumeVideos);
 document.addEventListener('visibilitychange', resumeVideos);
-for (const video of [chartVideo, codingVideo]) {
+for (const video of siteVideos) {
+  video.defaultPlaybackRate = 1.2;
+  video.playbackRate = 1.2;
+  video.addEventListener('loadedmetadata', () => { video.playbackRate = 1.2; });
   video.addEventListener('pause', resumeVideos);
   video.addEventListener('ended', resumeVideos);
 }
