@@ -6,6 +6,7 @@ const status = document.querySelector('#form-status');
 const otherInquiry = document.querySelector('#other-inquiry');
 const otherDetails = document.querySelector('#other-details');
 const chartVideo = document.querySelector('#chart-video');
+const codingVideo = document.querySelector('#coding-video');
 let language = 'ko';
 
 function updateOtherInquiry() {
@@ -24,11 +25,14 @@ function syncChartVideo() {
     chartVideo.setAttribute('src', videoSource);
     chartVideo.load();
   }
-  resumeChartVideo();
+  resumeVideos();
 }
 
-function resumeChartVideo() {
-  if (document.visibilityState === 'visible' && chartVideo.paused) chartVideo.play().catch(() => {});
+function resumeVideos() {
+  if (document.visibilityState !== 'visible') return;
+  for (const video of [chartVideo, codingVideo]) {
+    if (video?.paused) video.play().catch(() => {});
+  }
 }
 
 function applyLanguage(next) {
@@ -52,11 +56,13 @@ function applyLanguage(next) {
 
 switchButton.addEventListener('click', () => applyLanguage(language === 'ko' ? 'en' : 'ko'));
 window.addEventListener('resize', syncChartVideo);
-window.addEventListener('pageshow', resumeChartVideo);
-window.addEventListener('focus', resumeChartVideo);
-document.addEventListener('visibilitychange', resumeChartVideo);
-chartVideo.addEventListener('pause', resumeChartVideo);
-chartVideo.addEventListener('ended', resumeChartVideo);
+window.addEventListener('pageshow', resumeVideos);
+window.addEventListener('focus', resumeVideos);
+document.addEventListener('visibilitychange', resumeVideos);
+for (const video of [chartVideo, codingVideo]) {
+  video.addEventListener('pause', resumeVideos);
+  video.addEventListener('ended', resumeVideos);
+}
 menuButton.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(isOpen));
