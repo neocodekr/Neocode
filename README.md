@@ -16,7 +16,8 @@ python -m http.server 4173
 - `style.css`, `dark.css`, `redesign.css`: 반응형 다크 테마
 - `app.js`: 언어 전환, 모바일 메뉴, 문의 폼
 - `motion.js`: 스크롤 페이드인 효과
-- `media/`: 시연용 주식 차트 영상과 포스터
+- `media/`: 시연용 주식 차트 영상과 트레이딩 게임 영상·포스터
 - `make_chart_video.py`: 차트 영상 생성 스크립트
+- `make_trading_game_video.py`: 시안 기반 한국어·영어 트레이딩 게임 영상 생성 스크립트(데스크톱·모바일)
 
 문의 폼은 FormSubmit을 통해 `neocode.kr@gmail.com`으로 전송합니다. 영상의 차트는 시연용이며 실제 시장 데이터가 아닙니다.

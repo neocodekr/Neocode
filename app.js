@@ -15,6 +15,18 @@ function updateOtherInquiry() {
   if (!isOther) otherDetails.value = '';
 }
 
+function syncChartVideo() {
+  const chartVideo = document.querySelector('#chart-video');
+  const variant = (window.matchMedia('(max-width: 700px)').matches ? 'Mobile' : '') + (language === 'ko' ? 'Ko' : 'En');
+  const videoSource = chartVideo.dataset[`src${variant}`];
+  chartVideo.poster = chartVideo.dataset[`poster${variant}`];
+  if (chartVideo.getAttribute('src') !== videoSource) {
+    chartVideo.setAttribute('src', videoSource);
+    chartVideo.load();
+    chartVideo.play().catch(() => {});
+  }
+}
+
 function applyLanguage(next) {
   language = next;
   document.documentElement.lang = next;
@@ -28,9 +40,11 @@ function applyLanguage(next) {
   switchButton.innerHTML = next === 'ko' ? 'KOR <span aria-hidden="true">↗</span>' : 'ENG <span aria-hidden="true">↗</span>';
   switchButton.setAttribute('aria-label', next === 'ko' ? 'Switch to English' : '한국어로 전환');
   menuButton.setAttribute('aria-label', next === 'ko' ? '메뉴 열기' : 'Open menu');
+  syncChartVideo();
 }
 
 switchButton.addEventListener('click', () => applyLanguage(language === 'ko' ? 'en' : 'ko'));
+window.addEventListener('resize', syncChartVideo);
 menuButton.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(isOpen));
