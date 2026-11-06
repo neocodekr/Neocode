@@ -6,7 +6,7 @@ body{background:#080f19}
 .brand img,.footer-main img{filter:none}
 .site-nav a:after{background:#ef4c68}
 .language-switch{border-color:#486076;color:#eaf3fb}
-.language-switch span{color:#ff6680}
+.language-switch span{color:#6aa9ff}
 .site-nav a{font-size:14px;letter-spacing:.065em}
 .hero{min-height:calc(100vh - 88px);background:#060e19}
 .hero-visual:after{background:linear-gradient(90deg,#060d18f7 0%,#060d18e8 28%,#060d18a8 52%,#060d1833 100%)}
@@ -18,32 +18,32 @@ body{background:#080f19}
 .hero-lead{color:#e3edf6;font-size:clamp(18px,1.65vw,22px);line-height:1.6;margin-top:30px}
 .hero-focus-links{display:flex;flex-direction:column;align-items:flex-start;gap:12px;margin-top:48px}
 .hero-focus-links a{display:inline-flex;align-items:baseline;gap:18px;padding:0;border:0;background:none;color:#f2f7fa;font-size:clamp(19px,1.75vw,25px);font-weight:650;letter-spacing:-.025em;line-height:1.35}
-.hero-focus-links a:hover{color:#ff8196}
-.hero-focus-links a span{color:#ff748d}
+.hero-focus-links a:hover{color:#91c1ff}
+.hero-focus-links a span{color:#70adff}
 .eyebrow{color:#e25770;font-size:12px;letter-spacing:.12em;margin-bottom:28px}
-.eyebrow.light{color:#ff748d}
+.eyebrow.light{color:#70adff}
 .section h2,.feature-section h2,.contact-section h2{font-size:clamp(34px,3.3vw,50px);line-height:1.28;letter-spacing:-.04em;word-break:keep-all}
 .about-section{background:#0e1926;color:#f0f5fa}
 .about-copy .large-copy{color:#ecf3f8;font-size:clamp(22px,2vw,28px);line-height:1.55}
 .about-copy p:not(.large-copy){color:#a9bac9;font-size:17px;line-height:1.85}
 .under-link{border-color:#b4c8d6;color:#e3eef6}
-.under-link:hover{color:#ff8196}
+.under-link:hover{color:#91c1ff}
 .feature-section{background:#070f1b}
 .feature-heading>p,.section-top>p{font-size:17px;line-height:1.8}
 .article-foot h3{font-size:clamp(30px,3vw,40px)}
 .article-foot h3{margin-top:0}
 .article-foot p{font-size:16px;line-height:1.75}
 .video-frame{border-color:#344a5a}
-.article-index{color:#ff748d}
+.article-index{color:#70adff}
 .services-section{background:#101d2b;color:#eef4f8}
 .section-top>p,.service-item p{color:#aebdcc}
 .service-list{border-color:#668096}
 .service-item{border-color:#304456;grid-template-columns:minmax(220px,1fr) minmax(260px,1.1fr) 40px}
 .service-item h3{font-size:clamp(22px,2.2vw,31px);line-height:1.34;word-break:keep-all}
 .service-item p{font-size:16px;line-height:1.8}
-.service-no{color:#ff748d}
-.service-arrow{color:#ff748d}
-.service-item h3 a:hover{color:#ff8196}
+.service-no{color:#70adff}
+.service-arrow{color:#70adff}
+.service-item h3 a:hover{color:#91c1ff}
 .contact-section{background:#0a1421}
 .contact-intro>p:not(.eyebrow){color:#adbfcd}
 .contact-form label{font-size:14px}
@@ -51,17 +51,17 @@ body{background:#080f19}
 .inquiry-group legend{font-size:14px;font-weight:700;padding:0 0 12px}
 .inquiry-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:18px;row-gap:4px}
 .inquiry-options label{display:flex;align-items:center;gap:10px;grid-column:auto;margin:0;padding:9px 0;font-size:15px;font-weight:500;line-height:1.45;cursor:pointer}
-.contact-form .inquiry-options input[type=radio]{width:18px;height:18px;min-width:18px;margin:0;padding:0;border:0;accent-color:#ee5a73}
+.contact-form .inquiry-options input[type=radio]{width:18px;height:18px;min-width:18px;margin:0;padding:0;border:0;accent-color:#397ee8}
 .other-inquiry{grid-column:1/-1}
 .other-inquiry label{display:block}
 .contact-form input,.contact-form select,.contact-form textarea{border-color:#6b8498}
-.contact-form button{background:#ee5a73;color:#fff}
-.contact-form button:hover{background:#ff748a}
+.contact-form button{background:#397ee8;color:#fff}
+.contact-form button:hover{background:#73aeff}
 .site-footer{background:#070e18;color:#e9f0f6}
 .footer-main img{background:transparent;padding:0}
 .footer-bottom{border-color:#2a3b4a;color:#a3b4c3}
 .footer-email{display:inline-block;margin-top:14px;color:#e9f0f6;border-bottom:1px solid #687f91;padding-bottom:4px}
-.footer-email:hover{color:#ff8196}
+.footer-email:hover{color:#91c1ff}
 .kakao-float{position:fixed;z-index:40;right:24px;bottom:calc(24px + env(safe-area-inset-bottom));display:inline-flex;align-items:center;gap:10px;padding:13px 18px;border-radius:999px;background:#fee500;color:#191919;font-size:14px;font-weight:800;letter-spacing:-.02em;box-shadow:0 10px 30px #0008;transition:transform .2s,box-shadow .2s}
 .kakao-float:hover{transform:translateY(-3px);box-shadow:0 14px 34px #000a}
 .kakao-float svg{flex:none}

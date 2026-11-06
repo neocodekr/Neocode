@@ -9,6 +9,8 @@ const revealTargets = document.querySelectorAll([
   '.coding-kicker',
   '.coding-content h2',
   '.coding-outro',
+  '.seeding-copy > *',
+  '.seeding-visual',
   '.service-item',
   '.contact-intro',
   '.contact-form .inquiry-group',

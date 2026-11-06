@@ -34,7 +34,7 @@ COLORS = {
     "muted": (139, 160, 190),
     "white": (226, 232, 248),
     "cyan": (93, 213, 224),
-    "purple": (194, 139, 243),
+    "purple": (145, 176, 255),
     "yellow": (251, 185, 139),
 }
 
@@ -50,18 +50,18 @@ def background() -> Image.Image:
     for y in range(H):
         for x in range(W):
             glow = max(0, 1 - math.hypot((x - 1020) / 630, (y - 80) / 440))
-            pink = max(0, 1 - math.hypot((x - 700) / 450, (y + 55) / 370))
+            blue_glow = max(0, 1 - math.hypot((x - 700) / 450, (y + 55) / 370))
             pixels[x, y] = (
-                int(5 + glow * 25 + pink * 20),
-                int(18 + glow * 26 + pink * 2),
-                int(32 + glow * 40 + pink * 24),
+                int(5 + glow * 25 + blue_glow * 5),
+                int(18 + glow * 26 + blue_glow * 12),
+                int(32 + glow * 40 + blue_glow * 32),
             )
 
     blur = Image.new("RGBA", (W, H))
     d = ImageDraw.Draw(blur)
-    d.ellipse((680, -120, 930, 160), fill=(249, 62, 124, 95))
+    d.ellipse((680, -120, 930, 160), fill=(58, 119, 238, 95))
     d.ellipse((1050, 210, 1390, 500), fill=(52, 103, 219, 75))
-    d.ellipse((590, 330, 910, 640), fill=(232, 69, 125, 55))
+    d.ellipse((590, 330, 910, 640), fill=(51, 126, 237, 55))
     blur = blur.filter(ImageFilter.GaussianBlur(95))
     image = Image.alpha_composite(image.convert("RGBA"), blur)
 
@@ -74,12 +74,12 @@ def background() -> Image.Image:
     d.rounded_rectangle((647, 24, 1262, 480), radius=12, fill=(4, 11, 23, 255), outline=(49, 78, 111, 255), width=7)
     d.rounded_rectangle((660, 37, 1250, 467), radius=6, fill=(10, 21, 38, 255))
     d.rectangle((660, 37, 1250, 70), fill=(22, 37, 59, 255))
-    d.ellipse((676, 49, 683, 56), fill=(255, 99, 128))
+    d.ellipse((676, 49, 683, 56), fill=(92, 159, 255))
     d.ellipse((690, 49, 697, 56), fill=(255, 196, 105))
     d.ellipse((704, 49, 711, 56), fill=(99, 202, 175))
     d.text((733, 45), "experience.ts  •  NEOCODE", font=font(13), fill=(163, 184, 210))
     d.rectangle((664, 71, 710, 464), fill=(14, 29, 49))
-    for i, color in enumerate([(255, 97, 126), (95, 178, 226), (137, 137, 218), (91, 201, 202)]):
+    for i, color in enumerate([(92, 159, 255), (95, 178, 226), (137, 137, 218), (91, 201, 202)]):
         d.rounded_rectangle((679, 95 + i * 42, 694, 110 + i * 42), radius=3, outline=color, width=2)
     d.line((710, 70, 710, 466), fill=(42, 63, 88), width=2)
     d.rectangle((660, 440, 1250, 467), fill=(25, 48, 74))
@@ -125,7 +125,7 @@ def frame(t: float) -> Image.Image:
     d.text((761, y - 1), text, font=font(15), fill=(110, 210, 219))
     if int(t * 2) % 2 == 0:
         x = 761 + d.textlength(text, font=font(15))
-        d.rectangle((x, y, x + 2, y + 17), fill=(255, 100, 148))
+        d.rectangle((x, y, x + 2, y + 17), fill=(92, 159, 255))
 
     veil = Image.new("RGBA", (W, H))
     vd = ImageDraw.Draw(veil)
