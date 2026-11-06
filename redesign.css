@@ -27,8 +27,8 @@ body{background:var(--canvas);color:var(--ink)}
 h2 em,.contact-form em{font-style:normal;color:var(--accent)}
 .about-grid{grid-template-columns:1.2fr 1fr;gap:6%}
 .about-copy{padding:0 0 0 8%;border-left:2px solid var(--rule);align-self:center}
-.about-copy .large-copy{color:var(--ink);font-size:clamp(23px,2.8vw,43px);line-height:1.35;margin:0 0 70px;font-weight:750}
-.under-link{color:var(--ink);border-bottom:3px solid var(--accent);font-size:clamp(20px,2.4vw,38px);font-weight:750;min-width:min(395px,100%);gap:35px;padding:0 0 18px;margin:0;align-items:center}
+.about-copy .large-copy{color:var(--ink);font-size:clamp(23px,2.8vw,43px);line-height:1.35;margin:0 0 70px;font-weight:400}
+.under-link{color:var(--ink);border-bottom:3px solid var(--accent);font-size:clamp(20px,2.4vw,38px);font-weight:400;min-width:min(395px,100%);gap:35px;padding:0 0 18px;margin:0;align-items:center}
 .under-link span:last-child{color:var(--accent)}
 .about-bottom{display:flex;justify-content:space-between;gap:25px;border-top:1px solid var(--rule);margin-top:110px;padding-top:24px;color:#a9b9c9;font-size:clamp(13px,1.15vw,20px);font-weight:650;letter-spacing:.015em}
 .feature-section .section-label{margin-bottom:36px}
@@ -70,8 +70,8 @@ h2 em,.contact-form em{font-style:normal;color:var(--accent)}
 .coding-line{display:block}
 .coding-line-accent{color:var(--ink)}
 .coding-hash,.coding-word-accent{color:var(--accent)}
-.coding-outro{font-size:clamp(17px,1.8vw,29px);font-weight:600;line-height:1.55;letter-spacing:-.035em;text-shadow:0 3px 14px #000b;word-break:keep-all}
-.coding-outro strong{color:var(--ink);font-weight:800}
+.coding-outro{font-size:clamp(17px,1.8vw,29px);font-weight:400;line-height:1.55;letter-spacing:-.035em;text-shadow:0 3px 14px #000b;word-break:keep-all}
+.coding-outro strong{color:var(--ink);font-weight:400}
 html[lang=en] .coding-content h2{font-size:clamp(36px,4vw,65px)}
 .seeding-section{position:relative;overflow:hidden;padding:115px 0 120px;background:radial-gradient(circle at 78% 48%,#123c77 0%,#0a2446 31%,#071726 67%);color:var(--ink);scroll-margin-top:88px}
 .seeding-section::before{content:"";position:absolute;width:600px;height:600px;right:-160px;top:-220px;border:1px solid #5e9dff35;border-radius:50%;box-shadow:0 0 0 80px #5e9dff08,0 0 0 160px #5e9dff06;pointer-events:none}
