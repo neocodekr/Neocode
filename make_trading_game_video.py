@@ -66,8 +66,8 @@ COPY = {
     "ko": {
         "intro": "기본적 분석? 기술적 분석? 많이 헷갈리고 어렵습니다.",
         "tagline": [
-            ("트레이딩 게임", ACCENT), ("으로 ", WHITE),
-            ("네오코드", ACCENT), ("와 함께하세요!", WHITE),
+            ("투자를 ", WHITE), ("네오코드", ACCENT), ("와 함께 ", WHITE),
+            ("트레이딩 게임", ACCENT), ("으로 접근하세요.", WHITE),
         ],
         "top": ["삼전, 닉스는\n언제 오를까..?", "이평선은\n어디서 들어봤는데..", "세력은\n누구지..?"],
         "bottom": ["용어가\n어려워서...", "여러 책을\n봐도 헷갈리고...", "실전에\n적용하기 힘들고..."],
@@ -75,8 +75,8 @@ COPY = {
     "en": {
         "intro": "Fundamentals? Technicals? Trading can feel overwhelming.",
         "tagline": [
-            ("Play the Trading Game", ACCENT), (" with ", WHITE),
-            ("NEOCODE", ACCENT), ("!", WHITE),
+            ("Approach investing as a ", WHITE), ("trading game", ACCENT),
+            (" with ", WHITE), ("NEOCODE", ACCENT), (".", WHITE),
         ],
         "top": ["When will these\nstocks rise?", "Moving averages...\nwhere have I heard that?", "Who is moving\nthe market?"],
         "bottom": ["Too many\nnew terms...", "Even after many books,\nstill confusing...", "Hard to use\nin real trades..."],
@@ -214,15 +214,15 @@ def mobile_copy(language: str) -> tuple[Image.Image, Image.Image]:
     if language == "ko":
         intro = ["기본적 분석? 기술적 분석?", "많이 헷갈리고 어렵습니다."]
         tagline = [
-            [("트레이딩 게임", ACCENT), ("으로", WHITE)],
-            [("네오코드", ACCENT), ("와 함께하세요!", WHITE)],
+            [("투자를 ", WHITE), ("네오코드", ACCENT), ("와 함께", WHITE)],
+            [("트레이딩 게임", ACCENT), ("으로 접근하세요.", WHITE)],
         ]
         notes = [("삼전, 닉스는 언제 오를까..?", 70, 115), ("이평선은 어디서 들어봤는데..", 110, 182)]
     else:
         intro = ["Fundamentals? Technicals?", "Trading can feel overwhelming."]
         tagline = [
-            [("Play the Trading Game", ACCENT)],
-            [("with ", WHITE), ("NEOCODE!", ACCENT)],
+            [("Investing as a ", WHITE), ("trading game", ACCENT)],
+            [("with ", WHITE), ("NEOCODE", ACCENT), (".", WHITE)],
         ]
         notes = [("When will these stocks rise?", 62, 115), ("Moving averages... what's that?", 90, 182)]
 

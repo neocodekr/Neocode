@@ -82,26 +82,23 @@ form.addEventListener('submit', async event => {
   event.preventDefault();
   const button = document.querySelector('#submit-button');
   const data = new FormData(form);
-  if (data.get('_honey')) return;
+  if (data.get('_gotcha')) return;
   button.disabled = true;
   status.textContent = language === 'ko' ? '문의 내용을 전송하고 있습니다…' : 'Sending your inquiry…';
   try {
-    const response = await fetch('https://formsubmit.co/ajax/neocode.kr@gmail.com', {
+    const response = await fetch(form.action, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify(Object.fromEntries(data)),
+      headers: { Accept: 'application/json' },
+      body: data,
     });
     const result = await response.json();
-    if (!response.ok || !(result.success === true || result.success === 'true')) {
-      if (/activation|activate form/i.test(result.message || '')) throw new Error('activation_required');
-      throw new Error('submission_failed');
-    }
+    if (!response.ok || result.ok !== true) throw new Error(response.status === 403 ? 'delivery_setup' : 'submission_failed');
     form.reset();
     updateOtherInquiry();
     status.textContent = language === 'ko' ? '문의가 접수되었습니다. 감사합니다.' : 'Your inquiry was submitted. Thank you.';
   } catch (error) {
-    status.textContent = error.message === 'activation_required'
-      ? (language === 'ko' ? '현재 문의 메일 수신 설정을 확인 중입니다. 입력 내용은 유지됩니다. 잠시 후 다시 시도해 주세요.' : 'Email delivery is being activated. Your details remain in the form. Please try again shortly.')
+    status.textContent = error.message === 'delivery_setup'
+      ? (language === 'ko' ? '메일 수신 설정을 확인 중입니다. 입력 내용은 유지됩니다.' : 'Email delivery is being configured. Your details remain in the form.')
       : (language === 'ko' ? '전송하지 못했습니다. 입력 내용은 유지됩니다. 잠시 후 다시 시도해 주세요.' : 'Could not send. Your details remain in the form. Please try again shortly.');
   } finally {
     button.disabled = false;
