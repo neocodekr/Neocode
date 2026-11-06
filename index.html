@@ -1,21 +1,98 @@
 <!doctype html>
 <html lang="ko">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Neocode</title>
-    <style>
-      :root { color-scheme: light dark; font-family: system-ui, sans-serif; }
-      body { min-height: 100vh; margin: 0; display: grid; place-items: center; }
-      main { padding: 2rem; text-align: center; }
-      h1 { font-size: clamp(2.5rem, 8vw, 5rem); margin: 0 0 .5rem; }
-      p { font-size: 1.1rem; opacity: .7; }
-    </style>
-  </head>
-  <body>
-    <main>
-      <h1>Neocode</h1>
-      <p>GitHub Pages에 오신 것을 환영합니다.</p>
-    </main>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111d">
+  <meta name="description" content="NEOCODE는 앱, 웹 서비스, 업무용 프로그램을 만들고 운영하는 소프트웨어 스튜디오입니다.">
+  <title>NEOCODE — Software for meaningful moments</title>
+  <link rel="icon" href="/neocode_logo.png">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css">
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/dark.css?v=20261103-7">
+  <link rel="stylesheet" href="/redesign.css?v=20261103-5">
+  <script src="/app.js?v=20261103-7" defer></script>
+  <script src="/motion.js?v=20261103-1" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main" data-ko="본문으로 이동" data-en="Skip to content">본문으로 이동</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="NEOCODE home"><img src="/neocode_logo_dark.png" alt="NEOCODE"></a>
+      <nav class="site-nav" id="site-nav" aria-label="Main navigation">
+        <a href="#about">ABOUT</a><a href="#services">SERVICES</a><a href="#contact">CONTACT</a>
+      </nav>
+      <div class="header-actions">
+        <button class="language-switch" id="language-switch" type="button" aria-label="Switch to English">KOR <span aria-hidden="true">↗</span></button>
+        <button class="menu-toggle" id="menu-toggle" type="button" aria-label="메뉴 열기" aria-controls="site-nav" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="hero-visual" aria-hidden="true"><video class="hero-background-video" autoplay muted loop playsinline preload="auto" poster="/media/stock-chart-poster.jpg"><source src="/media/stock-chart-mobile.mp4?v=2" type="video/mp4" media="(max-width: 700px)"><source src="/media/stock-chart.mp4?v=2" type="video/mp4"></video><div class="hero-lines"></div></div>
+      <div class="hero-content container">
+        <div class="hero-text">
+          <h1 id="hero-title" data-ko="가능성을 코드로, 경험을 감동으로." data-en="Turning possibilities into code. Turning experiences into inspiration.">가능성을 코드로, 경험을 감동으로.</h1>
+          <p class="hero-lead" data-ko="네오코드와 함께 여러분의 꿈을 펼치십시요." data-en="Bring your dreams to life with NEOCODE.">네오코드와 함께 여러분의 꿈을 펼치십시요.</p>
+          <div class="hero-focus-links" aria-label="NEOCODE focus areas"><a href="#system-trading">System Trading <span aria-hidden="true">↗</span></a><a href="https://seedflow.kr/">Influence Seeding <span aria-hidden="true">↗</span></a><a href="#game-development">Game Development <span aria-hidden="true">↗</span></a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about-section" id="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="section-label"><span>01 / ABOUT</span></div>
+        <div class="about-grid">
+          <div><h2 id="about-title" data-ko="기술의 시작은<br><em>사람을 이해하는 일.</em>" data-en="Technology begins with<br><em>understanding people.</em>">기술의 시작은<br><em>사람을 이해하는 일.</em></h2></div>
+          <div class="about-copy"><p class="large-copy" data-ko="기술과 창의성을 연결해<br>실제로 쓰이는 경험을 만듭니다." data-en="We connect technology and creativity<br>to build experiences people use.">기술과 창의성을 연결해<br>실제로 쓰이는 경험을 만듭니다.</p><a class="under-link" href="#services"><span data-ko="우리가 하는 일" data-en="What we do">우리가 하는 일</span><span>↗</span></a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-section" id="system-trading" aria-label="System Trading">
+      <div class="container">
+        <div class="section-label"><span>SYSTEM TRADING</span></div>
+        <article class="feature-article"><div class="chart-meta"><strong>NEOCODE / SYSTEM TRADING</strong><span data-ko="차트 예시" data-en="Chart example">차트 예시</span></div><div class="video-frame"><video id="chart-video" autoplay muted loop playsinline preload="metadata" poster="/media/stock-chart-poster.jpg" aria-label="Illustrative animated stock candlestick chart"><source src="/media/stock-chart.mp4?v=2" type="video/mp4"></video><span class="video-caption" data-ko="시연용 차트 영상 · 실제 주가 데이터가 아닙니다" data-en="Illustrative chart film · not real market data">시연용 차트 영상 · 실제 주가 데이터가 아닙니다</span></div></article>
+        <div class="process-row"><div><b>01</b><span data-ko="차트 분석" data-en="Chart analysis">차트 분석</span><i>→</i></div><div><b>02</b><span data-ko="조건 설계" data-en="Rule design">조건 설계</span><i>→</i></div><div><b>03</b><span data-ko="자동 실행" data-en="Automated execution">자동 실행</span></div></div>
+      </div>
+    </section>
+
+    <section class="section services-section" id="services" aria-label="Services">
+      <div class="container"><div class="section-label"><span>02 / SERVICES</span></div>
+        <div class="service-list">
+          <article class="service-item"><b class="service-number">01</b><div><h3 data-ko="시스템 트레이딩" data-en="System Trading">시스템 트레이딩</h3><span class="service-subtitle">SYSTEM TRADING</span></div><p data-ko="시장 데이터 분석과 매매 전략의 시스템화,<br>모니터링 도구를 개발합니다." data-en="We build market analysis, systematic trading<br>and monitoring tools.">시장 데이터 분석과 매매 전략의 시스템화,<br>모니터링 도구를 개발합니다.</p><a class="service-arrow" href="#system-trading" aria-label="System Trading">↗</a></article>
+          <article class="service-item"><b class="service-number">02</b><div><h3><a href="https://seedflow.kr/" data-ko="인플루언스 시딩 시스템" data-en="Influence Seeding System">인플루언스 시딩 시스템</a></h3><span class="service-subtitle">INFLUENCE SEEDING SYSTEM</span></div><p data-ko="인플루언서 협업과<br>콘텐츠 확산을 관리합니다." data-en="We manage influencer partnerships<br>and content seeding.">인플루언서 협업과<br>콘텐츠 확산을 관리합니다.</p><a class="service-arrow" href="https://seedflow.kr/" aria-label="Influence Seeding website">↗</a></article>
+          <article class="service-item" id="game-development"><b class="service-number">03</b><div><h3 data-ko="게임 개발" data-en="Game Development">게임 개발</h3><span class="service-subtitle">GAME DEVELOPMENT</span></div><p data-ko="게임 기획·개발·출시를<br>하나의 흐름으로 만듭니다." data-en="We bring game planning, development<br>and release into one process.">게임 기획·개발·출시를<br>하나의 흐름으로 만듭니다.</p><a class="service-arrow" href="#contact" aria-label="Game Development inquiry">↗</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-label="Contact">
+      <div class="container"><div class="section-label"><span>03 / CONTACT</span></div><div class="contact-grid"><div class="contact-intro"><p class="contact-message" data-ko="함께하고 감동을 받고 싶다면<br>언제든 편하게 문의주세요.<br><br>기다리겠습니다.<br>감사합니다." data-en="If you'd like to work together and be inspired,<br>please feel free to get in touch anytime.<br><br>We look forward to hearing from you.<br>Thank you.">함께하고 감동을 받고 싶다면<br>언제든 편하게 문의주세요.<br><br>기다리겠습니다.<br>감사합니다.</p></div>
+        <form id="contact-form" class="contact-form" action="https://formsubmit.co/neocode.kr@gmail.com" method="POST">
+          <input type="text" name="_honey" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="_captcha" value="false"><input type="hidden" name="_subject" value="[NEOCODE] Website inquiry"><input type="hidden" name="_template" value="table">
+          <fieldset class="inquiry-group"><legend data-ko="문의 유형 <em>*</em>" data-en="Inquiry type <em>*</em>">문의 유형 <em>*</em></legend><div class="inquiry-options">
+            <label><input type="radio" name="inquiry_type" value="System Trading (Automated Trading)" required><span data-ko="시스템 트레이딩(자동매매)" data-en="System Trading (Automated Trading)">시스템 트레이딩(자동매매)</span></label>
+            <label><input type="radio" name="inquiry_type" value="Influencer Seeding"><span data-ko="인플루언서 시딩" data-en="Influencer Seeding">인플루언서 시딩</span></label>
+            <label><input type="radio" name="inquiry_type" value="Game Development"><span data-ko="게임 개발" data-en="Game Development">게임 개발</span></label>
+            <label><input type="radio" name="inquiry_type" value="Other"><span data-ko="기타" data-en="Other">기타</span></label>
+          </div></fieldset>
+          <div class="other-inquiry" id="other-inquiry" hidden><label for="other-details" data-ko="기타 문의 내용" data-en="Other inquiry details">기타 문의 내용</label><input id="other-details" name="other_details" data-placeholder-ko="문의 유형을 입력해 주세요." data-placeholder-en="Please describe your inquiry type." placeholder="문의 유형을 입력해 주세요." disabled></div>
+          <div class="form-field field-full"><label for="contact-name" data-ko="이름 또는 회사명 <em>*</em>" data-en="Name or company <em>*</em>">이름 또는 회사명 <em>*</em></label><input id="contact-name" name="name" required autocomplete="name" data-placeholder-ko="이름 또는 회사명을 입력해 주세요" data-placeholder-en="Enter your name or company" placeholder="이름 또는 회사명을 입력해 주세요"></div>
+          <div class="form-field"><label for="contact-email" data-ko="회신 이메일 <em>*</em>" data-en="Email for reply <em>*</em>">회신 이메일 <em>*</em></label><input id="contact-email" name="email" type="email" required autocomplete="email" data-placeholder-ko="회신받을 이메일 주소" data-placeholder-en="Email address for replies" placeholder="회신받을 이메일 주소"></div>
+          <div class="form-field"><label for="contact-phone" data-ko="전화번호 <small>(선택)</small>" data-en="Phone <small>(optional)</small>">전화번호 <small>(선택)</small></label><input id="contact-phone" name="phone" type="tel" autocomplete="tel" data-placeholder-ko="연락 가능한 번호" data-placeholder-en="Your phone number" placeholder="연락 가능한 번호"></div>
+          <div class="form-field field-full"><label for="contact-message" data-ko="문의 내용 <em>*</em>" data-en="Your message <em>*</em>">문의 내용 <em>*</em></label><textarea id="contact-message" name="message" rows="5" required data-placeholder-ko="프로젝트의 목적과 필요한 기능을 알려주세요." data-placeholder-en="Tell us about your goals and the features you need." placeholder="프로젝트의 목적과 필요한 기능을 알려주세요."></textarea></div>
+          <button type="submit" id="submit-button"><span data-ko="문의 전송" data-en="Send inquiry">문의 전송</span><span aria-hidden="true">↗</span></button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite" data-ko="입력하신 정보는 문의 답변을 위해 사용됩니다." data-en="Your details will be used to respond to your inquiry.">입력하신 정보는 문의 답변을 위해 사용됩니다.</p>
+        </form></div>
+      </div>
+    </section>
+  </main>
+  <a class="kakao-float" href="https://open.kakao.com/o/sf6xatzi" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 2C6.48 2 2 5.58 2 10c0 2.75 1.73 5.18 4.36 6.62L5.5 21l4.84-2.55c.54.07 1.09.11 1.66.11 5.52 0 10-3.58 10-8S17.52 2 12 2Z"/></svg><span data-ko="카카오톡 문의" data-en="Chat on KakaoTalk">카카오톡 문의</span></a>
+  <footer class="site-footer"><div class="container footer-main"><img src="/neocode_logo_dark.png" alt="NEOCODE"><a href="#top">BACK TO TOP ↑</a></div><div class="container footer-bottom"><div><p data-ko="네오코드 · 대표 박은성 · 사업자등록번호 422-29-01059<br>통신판매업신고번호 제2025-서울구로-0315호 · D-U-N-S 963437563<br>서울시 구로구 경인로20나길 36 702호 · 고객센터 010-8674-1663" data-en="NEOCODE · CEO Park Eunseong · Business registration 422-29-01059<br>Mail order business registration 2025-Seoul-Guro-0315 · D-U-N-S 963437563<br>702, 36 Gyeongin-ro 20na-gil, Guro-gu, Seoul · +82 10-8674-1663">네오코드 · 대표 박은성 · 사업자등록번호 422-29-01059<br>통신판매업신고번호 제2025-서울구로-0315호 · D-U-N-S 963437563<br>서울시 구로구 경인로20나길 36 702호 · 고객센터 010-8674-1663</p><a class="footer-email" href="mailto:parkes@neocode.kr">parkes@neocode.kr</a></div><p>© 2026 NEOCODE. ALL RIGHTS RESERVED.</p></div></footer>
+</body>
 </html>

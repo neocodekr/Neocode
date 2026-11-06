@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+app.zip
+live.html
+renewal.css
+renewal.js
+data/
+product-images/
