@@ -1,9 +1,11 @@
 const revealTargets = document.querySelectorAll([
   '.hero-text',
+  '.hero-tag-wrap',
   '.section-label',
   '.about-grid > div',
   '.feature-article',
-  '.process-row > div',
+  '.journey-intro',
+  '.journey-scroll',
   '.service-item',
   '.contact-intro',
   '.contact-form .inquiry-group',

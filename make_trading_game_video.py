@@ -98,22 +98,17 @@ def make_copy_layer(language: str) -> tuple[Image.Image, Image.Image]:
     add_line(d, content["tagline"], 316, tagline_size)
 
     notes = Image.new("RGBA", (W, H))
-    note_specs = [
-        (content["top"][0], 230, 118, -7),
-        (content["top"][1], 660, 128, 5),
-        (content["top"][2], 1090, 120, -7),
-        (content["bottom"][0], 165, 415, 6),
-        (content["bottom"][1], 520, 422, -5),
-        (content["bottom"][2], 830, 410, 5),
-    ]
-    for value, x, y, angle in note_specs:
-        stamp = Image.new("RGBA", (440, 140))
-        sd = ImageDraw.Draw(stamp)
-        sd.multiline_text((14, 10), value, fill=(*WHITE, 225), font=font(25), spacing=4)
-        stamp = stamp.rotate(angle, Image.Resampling.BICUBIC, expand=False)
-        notes.alpha_composite(stamp, (x, y))
     nd = ImageDraw.Draw(notes)
-    for x, y in [(385, 135), (820, 170), (1280, 145)]:
+    for value, x, y in [
+        (content["top"][0], 230, 112),
+        (content["top"][1], 650, 112),
+        (content["top"][2], 1110, 112),
+        (content["bottom"][0], 165, 420),
+        (content["bottom"][1], 520, 420),
+        (content["bottom"][2], 855, 420),
+    ]:
+        nd.multiline_text((x, y), value, fill=(*WHITE, 225), font=font(25), spacing=5)
+    for x, y in [(385, 135), (820, 135), (1280, 135)]:
         nd.line([(x, y), (x + 6, y - 18)], fill=(*CORAL, 255), width=4)
         nd.line([(x + 15, y + 2), (x + 30, y - 10)], fill=(*CORAL, 255), width=4)
     return main, notes

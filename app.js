@@ -5,6 +5,7 @@ const form = document.querySelector('#contact-form');
 const status = document.querySelector('#form-status');
 const otherInquiry = document.querySelector('#other-inquiry');
 const otherDetails = document.querySelector('#other-details');
+const chartVideo = document.querySelector('#chart-video');
 let language = 'ko';
 
 function updateOtherInquiry() {
@@ -16,15 +17,18 @@ function updateOtherInquiry() {
 }
 
 function syncChartVideo() {
-  const chartVideo = document.querySelector('#chart-video');
   const variant = (window.matchMedia('(max-width: 700px)').matches ? 'Mobile' : '') + (language === 'ko' ? 'Ko' : 'En');
   const videoSource = chartVideo.dataset[`src${variant}`];
   chartVideo.poster = chartVideo.dataset[`poster${variant}`];
   if (chartVideo.getAttribute('src') !== videoSource) {
     chartVideo.setAttribute('src', videoSource);
     chartVideo.load();
-    chartVideo.play().catch(() => {});
   }
+  resumeChartVideo();
+}
+
+function resumeChartVideo() {
+  if (document.visibilityState === 'visible' && chartVideo.paused) chartVideo.play().catch(() => {});
 }
 
 function applyLanguage(next) {
@@ -36,7 +40,10 @@ function applyLanguage(next) {
   for (const element of document.querySelectorAll('[data-placeholder-ko][data-placeholder-en]')) {
     element.placeholder = next === 'ko' ? element.dataset.placeholderKo : element.dataset.placeholderEn;
   }
-  document.title = next === 'ko' ? 'NEOCODE — 감동을 전하는 소프트웨어' : 'NEOCODE — Software for meaningful moments';
+  document.title = next === 'ko' ? 'NEOCODE | 시스템 트레이딩·게임 개발·모바일 솔루션' : 'NEOCODE | System Trading, Game & Mobile Development';
+  document.querySelector('meta[name="description"]').content = next === 'ko'
+    ? '네오코드는 시스템 트레이딩, 인플루언스 시딩 시스템, 게임 개발, Windows 프로그램, 키오스크, 병원 솔루션, Android·iOS 모바일 개발을 제공합니다.'
+    : 'NEOCODE develops system trading, influence seeding systems, games, Windows programs, kiosks, hospital solutions, and Android and iOS mobile apps.';
   switchButton.innerHTML = next === 'ko' ? 'KOR <span aria-hidden="true">↗</span>' : 'ENG <span aria-hidden="true">↗</span>';
   switchButton.setAttribute('aria-label', next === 'ko' ? 'Switch to English' : '한국어로 전환');
   menuButton.setAttribute('aria-label', next === 'ko' ? '메뉴 열기' : 'Open menu');
@@ -45,6 +52,11 @@ function applyLanguage(next) {
 
 switchButton.addEventListener('click', () => applyLanguage(language === 'ko' ? 'en' : 'ko'));
 window.addEventListener('resize', syncChartVideo);
+window.addEventListener('pageshow', resumeChartVideo);
+window.addEventListener('focus', resumeChartVideo);
+document.addEventListener('visibilitychange', resumeChartVideo);
+chartVideo.addEventListener('pause', resumeChartVideo);
+chartVideo.addEventListener('ended', resumeChartVideo);
 menuButton.addEventListener('click', () => {
   const isOpen = nav.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(isOpen));
