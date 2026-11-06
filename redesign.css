@@ -5,6 +5,7 @@ body{background:var(--canvas);color:var(--ink)}
 .header-inner{width:min(1530px,calc(100% - 10.5vw))}
 .site-header{background:#071726e8;border-bottom:1px solid #344b5c}
 .hero{background:var(--canvas-deep)}
+.hero-content{top:-100px}
 .hero h1{font-size:clamp(25px,2.6vw,40px);font-weight:800;white-space:normal;max-width:1120px}
 .hero-lead{font-size:clamp(18px,1.5vw,23px)}
 .hero-focus-links{gap:0;margin-top:60px;width:min(540px,100%)}
