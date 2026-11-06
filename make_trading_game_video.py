@@ -69,7 +69,7 @@ COPY = {
             ("네오코드", CORAL), ("와 함께하세요!", WHITE),
         ],
         "top": ["삼전, 닉스는\n언제 오를까..?", "이평선은\n어디서 들어봤는데..", "세력은\n누구지..?"],
-        "bottom": ["용어가\n어려워서...", "여러 길을\n봐도 헷갈리고...", "실전에\n적용하기 힘들고..."],
+        "bottom": ["용어가\n어려워서...", "여러 책을\n봐도 헷갈리고...", "실전에\n적용하기 힘들고..."],
     },
     "en": {
         "intro": "Fundamentals? Technicals? Trading can feel overwhelming.",
@@ -78,7 +78,7 @@ COPY = {
             ("NEOCODE", CORAL), ("!", WHITE),
         ],
         "top": ["When will these\nstocks rise?", "Moving averages...\nwhere have I heard that?", "Who is moving\nthe market?"],
-        "bottom": ["Too many\nnew terms...", "So many paths,\nstill confusing...", "Hard to use\nin real trades..."],
+        "bottom": ["Too many\nnew terms...", "Even after many books,\nstill confusing...", "Hard to use\nin real trades..."],
     },
 }
 
