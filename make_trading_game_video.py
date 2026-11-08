@@ -211,28 +211,27 @@ MW, MH = 720, 1000
 def mobile_copy(language: str) -> tuple[Image.Image, Image.Image]:
     main = Image.new("RGBA", (MW, MH))
     draw = ImageDraw.Draw(main)
+    content = COPY[language]
     if language == "ko":
         intro = ["기본적 분석? 기술적 분석?", "많이 헷갈리고 어렵습니다."]
         tagline = [
             [("투자를 ", WHITE), ("네오코드", ACCENT), ("와 함께", WHITE)],
             [("트레이딩 게임", ACCENT), ("으로 접근하세요.", WHITE)],
         ]
-        notes = [("삼전, 닉스는 언제 오를까..?", 70, 115), ("이평선은 어디서 들어봤는데..", 110, 182)]
     else:
         intro = ["Fundamentals? Technicals?", "Trading can feel overwhelming."]
         tagline = [
             [("Investing as a ", WHITE), ("trading game", ACCENT)],
             [("with ", WHITE), ("NEOCODE", ACCENT), (".", WHITE)],
         ]
-        notes = [("When will these stocks rise?", 62, 115), ("Moving averages... what's that?", 90, 182)]
 
-    for line, y in zip(intro, [285, 330]):
+    for line, y in zip(intro, [300, 342]):
         size = 33 if language == "ko" else 31
         while width(line, size) > MW - 62:
             size -= 1
         x = (MW - width(line, size)) // 2
         draw.text((x, y), line, font=font(size, True), fill=(*WHITE, 255))
-    for parts, y in zip(tagline, [395, 465]):
+    for parts, y in zip(tagline, [425, 495]):
         size = 48 if language == "ko" else 46
         while sum(width(value, size) for value, _ in parts) > MW - 40:
             size -= 1
@@ -243,9 +242,21 @@ def mobile_copy(language: str) -> tuple[Image.Image, Image.Image]:
 
     note_layer = Image.new("RGBA", (MW, MH))
     nd = ImageDraw.Draw(note_layer)
-    for value, x, y in notes:
-        nd.text((x, y), value, font=font(24), fill=(*WHITE, 235))
-    nd.line((48, 235, MW - 48, 235), fill=(*ACCENT, 185), width=3)
+    for value, y in zip(content["top"], [60, 125, 190]):
+        value = value.replace("\n", " ")
+        size = 27 if language == "ko" else 25
+        while width(value, size, bold=False) > MW - 120:
+            size -= 1
+        nd.line((48, y + 13, 58, y + 13), fill=(*ACCENT, 255), width=3)
+        nd.text((72, y), value, font=font(size), fill=(*WHITE, 235))
+    nd.line((48, 262, MW - 48, 262), fill=(*ACCENT, 185), width=3)
+    for value, y in zip(content["bottom"], [603, 643, 683]):
+        value = value.replace("\n", " ")
+        size = 23 if language == "ko" else 21
+        while width(value, size, bold=False) > MW - 120:
+            size -= 1
+        nd.line((48, y + 11, 58, y + 11), fill=(*ACCENT, 255), width=2)
+        nd.text((72, y), value, font=font(size), fill=(*WHITE, 220))
     return main, note_layer
 
 
@@ -254,10 +265,10 @@ mb = ImageDraw.Draw(mobile_background)
 for y in range(MH):
     mix = y / MH
     mb.line((0, y, MW, y), fill=(4, int(22 + 5 * mix), int(38 + 9 * mix), 255))
-for y in [565, 635, 705, 775, 845, 915]:
+for y in [740, 790, 840, 890, 940, 970]:
     mb.line((38, y, MW - 38, y), fill=(74, 101, 124, 82), width=1)
 for x in range(64, MW - 20, 125):
-    mb.line((x, 565, x, 915), fill=(74, 101, 124, 55), width=1)
+    mb.line((x, 735, x, 970), fill=(74, 101, 124, 55), width=1)
 
 
 def mobile_frame(t: float, language: str, main: Image.Image, notes: Image.Image) -> Image.Image:
@@ -269,14 +280,14 @@ def mobile_frame(t: float, language: str, main: Image.Image, notes: Image.Image)
         if not fraction:
             break
         x = 48 + i * 11
-        mapped = lambda value: int(865 - (value - minimum) / (maximum - minimum) * 295)
+        mapped = lambda value: int(938 - (value - minimum) / (maximum - minimum) * 200)
         shown_close = opening + (closing - opening) * fraction
         color = CORAL if closing >= opening else BLUE
         alpha = int(255 * smooth(0, 1, fraction))
         draw.line((x, mapped(high), x, mapped(low)), fill=(*color, alpha), width=2)
         top, bottom = sorted((mapped(opening), mapped(shown_close)))
         draw.rectangle((x - 4, top, x + 4, max(top + 3, bottom)), fill=(*color, alpha))
-        draw.rectangle((x - 4, 945 - volume * fraction, x + 4, 945), fill=(*color, int(alpha * .78)))
+        draw.rectangle((x - 4, 975 - volume * fraction, x + 4, 975), fill=(*color, int(alpha * .78)))
     fade_layer(image, notes, smooth(.7, 1.8, t), rise=10)
     fade_layer(image, main, smooth(1.8, 3.0, t), rise=18)
     if t > 8.35:
