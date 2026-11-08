@@ -51,8 +51,8 @@ h2 em,.contact-form em{font-style:normal;color:var(--accent)}
 .chart-meta span:before{content:"";width:54px;height:4px;background:var(--accent)}
 .video-frame{border:0;background:transparent;box-shadow:none;overflow:hidden}
 .video-frame video{width:100%;height:auto;aspect-ratio:1600/690;object-fit:contain;object-position:center}
-.video-caption{bottom:14px;right:14px;max-width:min(740px,calc(100% - 28px));font-size:11px;line-height:1.5;text-align:right;background:#071726e6}
-@media(max-width:700px){.video-caption{bottom:8px;right:8px;max-width:calc(100% - 16px);font-size:10px;text-align:left}}
+.video-caption{bottom:14px;right:14px;max-width:min(740px,calc(100% - 28px));font-size:14px;line-height:1.5;text-align:right;background:#071726e6}
+@media(max-width:700px){.video-caption{bottom:8px;right:8px;max-width:calc(100% - 16px);font-size:13px;text-align:left}}
 .service-number{color:var(--accent)}
 .trading-journey{margin-top:64px;padding:45px 0 0;background:transparent;color:var(--ink)}
 .journey-intro{text-align:center;padding:0 20px}
